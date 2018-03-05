@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue!</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ getFullName(firstName, lastName).name }}</h1>
+      <a v-bind:href="blogUrl">Google</a>
+      <p>Title: {{ filmTitle }}</p>
+      <p>Released: {{ released }}</p>
+      <p>The film is {{ isFilmOld(released) ? 'old' : 'new' }}</p>
+      <div v-bind:title="filmTitle">Hover your mouse here!</div>
+      <!-- directive syntax: name:argument="expression" -->
+    </div>
+  </body>
+  <script src="app.js" charset="utf-8"></script>
+</html>

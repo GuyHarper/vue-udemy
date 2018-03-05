@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue!</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click.once="clickedButton('hello', $event)">Only displays once</button>
+      <div v-on:click="clickedButton('hello', $event)">
+        <button v-on:click.stop="clickedButton('hello', $event)">No event propagation!</button>
+      </div>
+      <form v-on:submit.prevent="clickedButton('hello', $event)">
+        <!-- Same as preventDefault. prevents default behaviour -->
+        <button>This form won't submit!</button>
+      </form>
+      <input type="text" v-on:keyup.enter.space="pressedEnterOrSpace" placeholder="press enter or space">
+      <input type="text" v-on:keyup.shift.enter="pressedShiftAndEnter" placeholder="hold shift and press enter">
+      <button v-on:click.shift="clickedWhilstHoldingShift">click whilst holding shift</button>
+      <input type="text" v-on:keyup="updateValue" placeholder="this updates the 'value' data value on keyup">
+      <input type="text" v-on:keyup.enter.ctrl="value = $event.target.value" placeholder="this updates the 'value' data value on ctrl+enter">
+      <p>Output: {{ value }}</p>
+      <form v-on:submit.prevent>
+        <button>This form won't submit</button>
+      </form>
+    </div>
+  </body>
+  <script src="app.js" charset="utf-8"></script>
+</html>
